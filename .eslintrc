@@ -1,0 +1,28 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "prettier/standard"
+  ],
+  "extends": [
+    "standard",
+    "standard-react",
+    "prettier"
+    ],
+  "env": { 
+    "browser": true
+  },
+  "rules": {
+    "no-unused-vars": "off",   
+    "react/prop-types": "off"
+  }
+}

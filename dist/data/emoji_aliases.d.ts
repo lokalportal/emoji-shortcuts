@@ -1,0 +1,28 @@
+declare const aliases: {
+    readonly angry: "😠";
+    readonly blush: "😊";
+    readonly broken_heart: "💔";
+    readonly confused: "😕";
+    readonly cry: "😢";
+    readonly frowning: "😦";
+    readonly heart: "❤️";
+    readonly imp: "👿";
+    readonly innocent: "😇";
+    readonly joy: "😂";
+    readonly kissing: "😗";
+    readonly laughing: "😆";
+    readonly neutral_face: "😐";
+    readonly open_mouth: "😮";
+    readonly rage: "😡";
+    readonly smile: "😄";
+    readonly smiley: "😃";
+    readonly smiling_imp: "😈";
+    readonly sob: "😭";
+    readonly stuck_out_tongue: "😛";
+    readonly sunglasses: "😎";
+    readonly sweat: "😓";
+    readonly sweat_smile: "😅";
+    readonly unamused: "😒";
+    readonly wink: "😉";
+};
+export default aliases;
