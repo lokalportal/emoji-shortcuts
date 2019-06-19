@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to emoji-shortcuts 👋</h1>
 
-a small library to convert emoji-shortcuts like :) to utf-8 emojis 😄
+a small library to convert emoji-shortcuts like :) to utf-8 emojis 😄  
 great thanks to [react-emoji-render](https://github.com/tommoor/react-emoji-render) from where this library is been heavily inspired from.
 
 this library is written in `TypeScript` and comes with types bundled.
