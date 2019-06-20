@@ -9,20 +9,40 @@ describe('replaceAsciiAliases', () => {
     test('multiple', () => {
       expect(replaceAsciiAliases(':) :/')).toEqual('😃 😕')
     })
-    
+
+    test('over multiple lines', () => {
+      expect(replaceAsciiAliases(':)\n:/')).toEqual('😃\n😕')
+    })
+
+    test('starting wiht a new line', () => {
+      expect(replaceAsciiAliases('\n:/')).toEqual('\n😕')
+    })
     test('in text', () => {
       expect(replaceAsciiAliases('Hello :) test :/ bla')).toEqual('Hello 😃 test 😕 bla')
     })
 
+  })
+  describe('should not convert ascii shortcut to utf8 emojis', () => {
+
     test('concatinated', () => {
-      expect(replaceAsciiAliases(':):/')).toEqual('😃😕')
+      expect(replaceAsciiAliases(':):/')).toEqual(':):/')
+    })
+
+    test('concatinated between text', () => {
+      expect(replaceAsciiAliases('hello:)test')).toEqual('hello:)test')
+    })
+
+    test('concatinated before text', () => {
+      expect(replaceAsciiAliases(':)test')).toEqual(':)test')
+    })
+
+    test('concatinated before text', () => {
+      expect(replaceAsciiAliases(':)test')).toEqual(':)test')
     })
 
     test('concatinated with text', () => {
-      expect(replaceAsciiAliases('hello:)')).toEqual('😃😕')
+      expect(replaceAsciiAliases('hello:)')).toEqual('hello:)')
     })
-  })
-  describe('should not convert ascii shortcut to utf8 emojis', () => {
 
     describe('as part of url', () => {
 
