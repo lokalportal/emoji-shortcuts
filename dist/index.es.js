@@ -76,7 +76,7 @@ function replaceAsciiAliases(match) {
             return fullMatch.replace(trimMatch, aliases[alias]);
         }
     }
-    return fullMatch;
+    return fullMatch; // In cas there is a problem with the replacement
 }
 function replace(text) {
     return text.replace(asciiAliasesRegex, replaceAsciiAliases);
