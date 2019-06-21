@@ -10,8 +10,6 @@ const names = flatten(
     (asciiAliases as any)[name].map((alias: any) => quoteRE(alias)))
 ).join("|");
 
-const edgeCases = ["http", "https"].join("|");
-
 export default function() {
   return new RegExp(
     `(?:\\s|^)(${names})(?=\\s|$)`,

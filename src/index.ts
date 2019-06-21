@@ -15,7 +15,7 @@ function replaceAsciiAliases(match: string) {
     }
   }
 
-  return fullMatch;
+  return fullMatch; // In cas there is a problem with the replacement
 }
 
 function replace(text: string) {
