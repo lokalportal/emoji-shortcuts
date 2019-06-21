@@ -4,34 +4,18 @@ import aliases from "../data/emoji_aliases";
 
 
 const asciiAliasesRegex = asciiRegex();
-function replaceAsciiAliases(...match: string[]) {
-  const asciiAliasKeys = Object.keys(asciiAliases);
+function replaceAsciiAliases(match: string) {
+  const fullMatch = match;
+  const trimMatch = fullMatch.trim();
 
-  const prevChar = match[6][(match[5] as any) - 1];
-  const nextChar = match[6][(match[5] as any) + match[2].length];
-
-  for (let i in asciiAliasKeys) {
-    const alias = asciiAliasKeys[i];
+  for (const alias in asciiAliases) {
     const data = (asciiAliases as any)[alias];
-    const aliasFound = match[2];
-
-    if (data.includes(aliasFound)) {
-      const isEdgeCase = match[1];
-      const fullMatchContent = match[0].slice(1, -1); // remove ":" at the beginning and end
-      const validAsciiAlias = !(aliases as any)[fullMatchContent]; // ":" + fullMatchContent + ":" alias doesn't exist
-
-      if (!isEdgeCase &&
-        validAsciiAlias &&
-        (prevChar === undefined || prevChar.match(/\s/))
-        && (nextChar === undefined || nextChar.match(/\s/))
-      ) {
-        return (aliases as any)[alias];
-      }
-
-      // return the original word to replace its value in aliasesRegex
-      return match[0];
+    if (data.includes(trimMatch)) {
+      return fullMatch.replace(trimMatch, (aliases as any)[alias]);
     }
   }
+
+  return fullMatch;
 }
 
 function replace(text: string) {

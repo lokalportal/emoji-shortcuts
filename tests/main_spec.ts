@@ -7,7 +7,7 @@ describe('replaceAsciiAliases', () => {
     })
 
     test('multiple', () => {
-      expect(replaceAsciiAliases(':) :/')).toEqual('😃 😕')
+      expect(replaceAsciiAliases(':) :/ :)')).toEqual('😃 😕 😃')
     })
 
     test('over multiple lines', () => {

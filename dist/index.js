@@ -38,9 +38,8 @@ function quoteRE(str) {
 var names = flatten(Object.keys(asciiAliases).map(function (name) {
     return asciiAliases[name].map(function (alias) { return quoteRE(alias); });
 })).join("|");
-var edgeCases = ["http", "https"].join("|");
 function asciiRegex () {
-    return new RegExp("(" + edgeCases + ")?(" + names + ")((?!(" + edgeCases + "))[a-z0-9_\\-\\+]+:)?", "g");
+    return new RegExp("(?:\\s|^)(" + names + ")(?=\\s|$)", "g");
 }
 
 var aliases = {
@@ -72,27 +71,16 @@ var aliases = {
 };
 
 var asciiAliasesRegex = asciiRegex();
-function replaceAsciiAliases() {
-    var match = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        match[_i] = arguments[_i];
-    }
-    var asciiAliasKeys = Object.keys(asciiAliases);
-    for (var i in asciiAliasKeys) {
-        var alias = asciiAliasKeys[i];
+function replaceAsciiAliases(match) {
+    var fullMatch = match;
+    var trimMatch = fullMatch.trim();
+    for (var alias in asciiAliases) {
         var data = asciiAliases[alias];
-        var aliasFound = match[2];
-        if (data.includes(aliasFound)) {
-            var isEdgeCase = match[1];
-            var fullMatchContent = match[0].slice(1, -1); // remove ":" at the beginning and end
-            var validAsciiAlias = !aliases[fullMatchContent]; // ":" + fullMatchContent + ":" alias doesn't exist
-            if (!isEdgeCase && validAsciiAlias) {
-                return aliases[alias];
-            }
-            // return the original word to replace its value in aliasesRegex
-            return match[0];
+        if (data.includes(trimMatch)) {
+            return fullMatch.replace(trimMatch, aliases[alias]);
         }
     }
+    return fullMatch;
 }
 function replace(text) {
     return text.replace(asciiAliasesRegex, replaceAsciiAliases);
