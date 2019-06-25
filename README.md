@@ -16,7 +16,11 @@ yarn test
 
 👤 **André Sattler**
 
-* Github: [@andresattler](https://github.com/@andresattler)
+* Github: [@andresattler](https://github.com/andresattler)
+
+👤 **Mathilde Buenerd**
+
+* Github: [@mathildebuenerd](https://github.com/mathildebuenerd)
 
 ## Show your support
 
