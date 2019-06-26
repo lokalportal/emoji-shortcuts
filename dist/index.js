@@ -72,15 +72,14 @@ var aliases = {
 
 var asciiAliasesRegex = asciiRegex();
 function replaceAsciiAliases(match) {
-    var fullMatch = match;
-    var trimMatch = fullMatch.trim();
+    var trimMatch = match.trim();
     for (var alias in asciiAliases) {
         var data = asciiAliases[alias];
         if (data.includes(trimMatch)) {
-            return fullMatch.replace(trimMatch, aliases[alias]);
+            return match.replace(trimMatch, aliases[alias]);
         }
     }
-    return fullMatch; // In cas there is a problem with the replacement
+    return match; // In case there is a problem with the replacement
 }
 function replace(text) {
     return text.replace(asciiAliasesRegex, replaceAsciiAliases);
