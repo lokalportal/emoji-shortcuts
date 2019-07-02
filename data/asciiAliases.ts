@@ -1,4 +1,7 @@
-const asciiAliases = {
+interface IAsciiAliases {
+  [key: string]: string[]
+}
+const asciiAliases: IAsciiAliases = {
   angry: [">:(", ">:-("],
   blush: [':")', ':-")'],
   broken_heart: ["</3", "<\\3"],
@@ -24,7 +27,7 @@ const asciiAliases = {
   sweat_smile: [",:)", ",:-)"],
   unamused: [":s", ":-S", ":z", ":-Z", ":$", ":-$"],
   wink: [";)", ";-)"]
-} as const
+}
 
 
 export default asciiAliases

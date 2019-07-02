@@ -1,28 +1,5 @@
-declare const asciiAliases: {
-    readonly angry: readonly [">:(", ">:-("];
-    readonly blush: readonly [":\")", ":-\")"];
-    readonly broken_heart: readonly ["</3", "<\\3"];
-    readonly confused: readonly [":/", ":-/"];
-    readonly cry: readonly [":'(", ":'-(", ":,(", ":,-("];
-    readonly frowning: readonly [":(", ":-("];
-    readonly heart: readonly ["<3"];
-    readonly imp: readonly ["]:(", "]:-("];
-    readonly innocent: readonly ["o:)", "O:)", "o:-)", "O:-)", "0:)", "0:-)"];
-    readonly joy: readonly [":')", ":'-)", ":,)", ":,-)", ":'D", ":'-D", ":,D", ":,-D"];
-    readonly kissing: readonly [":*", ":-*"];
-    readonly laughing: readonly ["x-)", "X-)"];
-    readonly neutral_face: readonly [":|", ":-|"];
-    readonly open_mouth: readonly [":o", ":-o", ":O", ":-O"];
-    readonly rage: readonly [":@", ":-@"];
-    readonly smile: readonly [":D", ":-D"];
-    readonly smiley: readonly [":)", ":-)"];
-    readonly smiling_imp: readonly ["]:)", "]:-)"];
-    readonly sob: readonly [":,'(", ":,'-(", ";(", ";-("];
-    readonly stuck_out_tongue: readonly [":P", ":-P", ":p", ":-p"];
-    readonly sunglasses: readonly ["8-)", "B-)"];
-    readonly sweat: readonly [",:(", ",:-("];
-    readonly sweat_smile: readonly [",:)", ",:-)"];
-    readonly unamused: readonly [":s", ":-S", ":z", ":-Z", ":$", ":-$"];
-    readonly wink: readonly [";)", ";-)"];
-};
+interface IAsciiAliases {
+    [key: string]: string[];
+}
+declare const asciiAliases: IAsciiAliases;
 export default asciiAliases;

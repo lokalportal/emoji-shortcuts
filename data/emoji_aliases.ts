@@ -1,4 +1,8 @@
-const aliases = {
+interface IAliases {
+  [key: string]: string
+}
+
+const aliases: IAliases = {
   angry: "😠",
   blush: "😊",
   broken_heart: "💔",
@@ -24,6 +28,6 @@ const aliases = {
   sweat_smile: "😅",
   unamused: "😒",
   wink: "😉",
-} as const
+}
 
 export default aliases

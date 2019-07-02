@@ -9,9 +9,9 @@ function replaceAsciiAliases(match: string) {
   const trimMatch = match.trim();
 
   for (const alias in asciiAliases) {
-    const data = (asciiAliases as any)[alias];
+    const data = asciiAliases[alias];
     if (data.includes(trimMatch)) {
-      return match.replace(trimMatch, (aliases as any)[alias]);
+      return match.replace(trimMatch, aliases[alias]);
     }
   }
 

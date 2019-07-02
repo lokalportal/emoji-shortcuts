@@ -5,9 +5,11 @@ function quoteRE(str: string) {
   return str.replace(/[.?*+^$[\]\\(){}|-]/g, "\\$&");
 }
 
+const x = Object.keys(asciiAliases)
+
 const names = flatten(
   Object.keys(asciiAliases).map(name =>
-    (asciiAliases as any)[name].map((alias: any) => quoteRE(alias)))
+    asciiAliases[name].map(alias => quoteRE(alias)))
 ).join("|");
 
 export default function() {
